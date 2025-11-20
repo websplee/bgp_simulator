@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BGPSimulator_HMC": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

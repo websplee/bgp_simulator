@@ -1,0 +1,14 @@
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\bin\Debug\net8.0\BGPSimulator_HMC.exe
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\bin\Debug\net8.0\BGPSimulator_HMC.deps.json
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\bin\Debug\net8.0\BGPSimulator_HMC.runtimeconfig.json
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\bin\Debug\net8.0\BGPSimulator_HMC.dll
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\bin\Debug\net8.0\BGPSimulator_HMC.pdb
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.AssemblyInfoInputs.cache
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.AssemblyInfo.cs
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.csproj.CoreCompileInputs.cache
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.dll
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\refint\BGPSimulator_HMC.dll
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.pdb
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.genruntimeconfig.cache
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\ref\BGPSimulator_HMC.dll

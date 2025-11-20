@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DDu9C0btXP0=",
+  "success": true,
+  "projectFilePath": "D:\\Code\\School\\BGPSimulator_HMC\\BGPSimulator_HMC\\BGPSimulator_HMC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hmspl\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1.nupkg.sha512"
+  ],
+  "logs": []
+}
