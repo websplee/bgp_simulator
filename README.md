@@ -103,6 +103,7 @@ dotnet run --project BGPSimulator_HMC/BGPSimulator_HMC.csproj
 ## 🐳 Running with Docker (with GraphViz)
 
 This project includes a **Dockerfile** that supports GraphViz.
+**Be sure to copy the Dockerfile into the directory where .sln file is**
 
 ### Build
 
