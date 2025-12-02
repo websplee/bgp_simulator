@@ -3,62 +3,216 @@
 # Student No.: 24157696
 # Date: 2025-09-25
 
-## What
-A simple BGP-style routing simulator in C# that:
-- runs discrete iterations,
-- routes are advertised by neighbors,
-- uses a simplified BGP decision process,
-- outputs routing tables per iteration,
-- creates GraphViz DOT files and tries to render PNGs with `dot`.
+# BGP Routing Simulator (C# .NET 8)
 
-## Requirements
-- .NET 8 SDK (or change TargetFramework in csproj to your installed version)
-- (optional) Graphviz installed and `dot` in PATH to produce PNGs
+A fully interactive BGP-like routing protocol simulator written in C# and built for Visual Studio and .NET 8.
 
-## Run in Visual Studio
-1. Open `BGPSimulator_HMC.sln`.
-2. Set `BGPSimulator_HMC` as startup project.
-3. Run (F5) or Ctrl+F5.
+The simulator supports:
+- Router-to-router adjacency
+- Per-iteration route advertisement and updates
+- Simplified BGP best-path selection
+- CIDR prefix validation for user inputs
+- GraphViz rendering of each iteration (DOT + PNG)
+- Example, Custom, and Random topology generation
 
-## Command-line
-From project folder:# BGPSimulator_HMC (C# .NET 8)
+I specifically built this project as part of my IS 585 Networking course.
+I have made it public for others to use and it is ideal for:
+✔️ Networking students  
+✔️ Routing / BGP learners  
+✔️ Algorithm and topology simulation projects  
+✔️ Classroom demonstrations  
+✔️ Experimenting with routing behaviors  
 
-## What
-A simple BGP-style routing simulator in C# that:
-- runs discrete iterations,
-- routes are advertised by neighbors,
-- uses a simplified BGP decision process,
-- outputs routing tables per iteration,
-- creates GraphViz DOT files and tries to render PNGs with `dot`.
-- copy and paste output of `dot` command to an online renderer like https://dreampuf.github.io/GraphvizOnline/ if you don't have Graphviz installed.
+---
 
-## Requirements
-- .NET 8 SDK (or change TargetFramework in csproj to your installed version)
-- (optional) Graphviz installed and `dot` in PATH to produce PNGs
+## 🔧 Features
 
-## Run in Visual Studio
-1. Open `BGPSimulator_HMC.sln`.
-2. Set `BGPSimulator_HMC` as startup project.
-3. Run (F5) or Ctrl+F5.
+### ✔️ BGP-style simulation
+- AS-Path growth
+- Loop prevention
+- Decision process: LocalPref → AS-Path length → MED → Tiebreak
 
-## Command-line
-From project folder:
+### ✔️ Three modes of operation
+At program startup, choose:
 
-## GraphViz
-Install Graphviz from https://graphviz.org/download/ (Windows installer).
-Make sure `dot` is available on your PATH. The renderer will still write DOT files even if `dot` isn't present.
+**1️⃣ Example Topology**  
+Runs a predefined A–B–C–D network with several prefix origins.
 
-DOT and PNG files are written to the `graphs` folder.
+**2️⃣ Custom Topology**  
+User defines:
+- Number of routers (1–10)
+- Adjacency lists (neighbors)
+- CIDR prefixes each router originates
+- Number of simulation iterations
 
-## Running from Docker
-1. docker build -t bgp-sim .
-2. docker run --rm -it -v "%cd%/graphs:/app/graphs" bgp-sim
+Input validation ensures:
+- Correct format: `x.x.x.x/x`
+- Correct IPv4 ranges
+- Proper prefix lengths
 
-## Assumptions
-Be sure to play with the assumptions and init data in programs.cs
+**3️⃣ Random Topology Generator**  
+Automatically builds:
+- Random neighbors (40% link probability)
+- Random prefix origins (50% chance per router)
+- Random /24 networks such as `10.x.y.0/24`
 
-// Initially, A originates prefix 10.0.0.0/24, C originates 20.0.0.0/24, D originates 30.0.0.0/24
-A.RoutingTable["10.0.0.0/24"] = new Route { Prefix = "10.0.0.0/24", NextHop = "A", AsPath = new System.Collections.Generic.List<string> { "A" } };
-C.RoutingTable["20.0.0.0/24"] = new Route { Prefix = "20.0.0.0/24", NextHop = "C", AsPath = new System.Collections.Generic.List<string> { "C" } };
-D.RoutingTable["30.0.0.0/24"] = new Route { Prefix = "30.0.0.0/24", NextHop = "D", AsPath = new System.Collections.Generic.List<string> { "D" } };
+A great way to test routing behavior with unpredictable designs.
 
+---
+
+## 🖼️ Graph Visualization (GraphViz)
+
+For **each iteration**, the system generates:
+
+- A `.dot` file
+- A `.png` file (if GraphViz is installed)
+
+Output is saved to:
+
+/graphs/
+
+markdown
+Copy code
+
+GraphViz shows:
+- Routers (boxes)
+- Links (bidirectional dashed edges)
+- Prefix origin + propagation
+- Route flow via NextHop
+
+---
+
+## 🚀 Running the Simulator
+
+### ### Visual Studio (Windows)
+1. Open `BGPSimulator.sln`
+2. Ensure **.NET 8** is installed
+3. Set `BGPSimulator` as the startup project
+4. Run (F5)
+
+### Command Line (.NET 8 SDK installed)
+
+dotnet run --project BGPSimulator/BGPSimulator.csproj
+
+yaml
+Copy code
+
+---
+
+## 🐳 Running with Docker (with GraphViz)
+
+This project includes a **Dockerfile** that supports GraphViz.
+
+### Build
+
+docker build -t bgp-sim .
+
+shell
+Copy code
+
+### Run
+
+Windows (PowerShell):
+docker run --rm -it -v "${PWD}/graphs:/app/graphs" bgp-sim
+
+bash
+Copy code
+
+Linux/macOS:
+docker run --rm -it -v "$(pwd)/graphs:/app/graphs" bgp-sim
+
+yaml
+Copy code
+
+PNG and DOT files will appear on your host.
+
+---
+
+## 📁 Project Structure
+
+BGPSimulator/
+├─ BGPSimulator.sln
+├─ Dockerfile
+├─ BGPSimulator/
+│ ├─ Program.cs # User menu + topology creation
+│ ├─ BGPSimulatorEngine.cs # Route propagation logic
+│ ├─ GraphVizRenderer.cs # DOT + PNG rendering
+│ ├─ Models/
+│ │ ├─ Router.cs # Router model
+│ │ └─ Route.cs # Route model (LocalPref, AS-Path, MED)
+│ ├─ BGPSimulator.csproj
+│ └─ README.md
+└─ graphs/ # DOT + PNG output
+
+yaml
+Copy code
+
+---
+
+## 🔍 How the Simulation Works
+
+Each iteration performs:
+1. Every router advertises its current routes to neighbors  
+2. Each router receives incoming routes  
+3. Routes are evaluated via BGP decision logic  
+4. Routing tables are updated  
+5. GraphViz output is generated  
+
+This continues for the number of iterations chosen by the user.
+
+---
+
+## 🧪 Example Output (Console)
+
+=========== ITERATION 1 ===========
+
+Router A Routing Table:
+10.0.0.0/24 | NextHop=A | LP=100 | MED=0 | ASPath=A
+
+Router B Routing Table:
+10.0.0.0/24 | NextHop=A | ASPath=A B
+
+yaml
+Copy code
+
+---
+
+## 🛠️ Future Enhancements (optional ideas)
+
+- Support for:
+  - Withdrawals
+  - Communities
+  - LocalPref policies per neighbor
+  - Route reflectors / iBGP / eBGP distinction
+- Export tables to JSON or CSV
+- GUI (WPF or WinForms)
+- Web API for real-time visualization
+
+---
+
+## 👨‍💻 Author Notes
+
+This simulator is intentionally simplified to make BGP behaviors easy to visualize and teach.  
+It is **not** intended for production routing or full RFC compliance.
+
+---
+
+## ✔️ Requirements
+
+- .NET 8 SDK  
+- GraphViz (optional but recommended)
+
+GraphViz download:  
+https://graphviz.org/download/
+
+---
+
+## 📬 Support
+
+If you need:
+- a GUI version  
+- more protocols (OSPF, IS-IS)  
+- advanced BGP attributes  
+- multi-threaded event timers  
+
+Just ask — happy to help 🔨🤖🔧

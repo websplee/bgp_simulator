@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BGPSimulator_HMC
 {
-    public class BGPSimulator_HMCEngine
+    public class BGPSimulatorEngine
     {
         public List<Router> Routers { get; } = new();
 
