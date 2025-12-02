@@ -12,3 +12,4 @@ D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\refint\BGPSimu
 D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.pdb
 D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.genruntimeconfig.cache
 D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\ref\BGPSimulator_HMC.dll
+D:\Code\School\BGPSimulator_HMC\BGPSimulator_HMC\obj\Debug\net8.0\BGPSimulator_HMC.sourcelink.json

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BGPSimulator_HMC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+812804febe0b09ffe275e10f64b86902e8d52a6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("BGPSimulator_HMC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BGPSimulator_HMC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
