@@ -17,6 +17,7 @@ The simulator supports:
 
 I specifically built this project as part of my IS 585 Networking course.
 I have made it public for others to use and it is ideal for:
+
 ✔️ Networking students  
 ✔️ Routing / BGP learners  
 ✔️ Algorithm and topology simulation projects  
@@ -71,8 +72,8 @@ Output is saved to:
 
 /graphs/
 
-markdown
-Copy code
+
+
 
 GraphViz shows:
 - Routers (boxes)
@@ -85,17 +86,17 @@ GraphViz shows:
 ## 🚀 Running the Simulator
 
 ### ### Visual Studio (Windows)
-1. Open `BGPSimulator.sln`
+1. Open `BGPSimulator_HMC.sln`
 2. Ensure **.NET 8** is installed
-3. Set `BGPSimulator` as the startup project
+3. Set `BGPSimulator_HMC` as the startup project
 4. Run (F5)
 
 ### Command Line (.NET 8 SDK installed)
 
-dotnet run --project BGPSimulator/BGPSimulator.csproj
+dotnet run --project BGPSimulator_HMC/BGPSimulator_HMC.csproj
 
-yaml
-Copy code
+
+
 
 ---
 
@@ -108,7 +109,7 @@ This project includes a **Dockerfile** that supports GraphViz.
 docker build -t bgp-sim .
 
 shell
-Copy code
+
 
 ### Run
 
@@ -116,13 +117,13 @@ Windows (PowerShell):
 docker run --rm -it -v "${PWD}/graphs:/app/graphs" bgp-sim
 
 bash
-Copy code
+
 
 Linux/macOS:
 docker run --rm -it -v "$(pwd)/graphs:/app/graphs" bgp-sim
 
-yaml
-Copy code
+
+
 
 PNG and DOT files will appear on your host.
 
@@ -130,22 +131,22 @@ PNG and DOT files will appear on your host.
 
 ## 📁 Project Structure
 
-BGPSimulator/
-├─ BGPSimulator.sln
+BGPSimulator_HMC/
+├─ BGPSimulator_HMC.sln
 ├─ Dockerfile
-├─ BGPSimulator/
+├─ BGPSimulator_HMC/
 │ ├─ Program.cs # User menu + topology creation
 │ ├─ BGPSimulatorEngine.cs # Route propagation logic
 │ ├─ GraphVizRenderer.cs # DOT + PNG rendering
 │ ├─ Models/
 │ │ ├─ Router.cs # Router model
 │ │ └─ Route.cs # Route model (LocalPref, AS-Path, MED)
-│ ├─ BGPSimulator.csproj
+│ ├─ BGPSimulator_HMC.csproj
 │ └─ README.md
 └─ graphs/ # DOT + PNG output
 
-yaml
-Copy code
+
+
 
 ---
 
@@ -172,8 +173,8 @@ Router A Routing Table:
 Router B Routing Table:
 10.0.0.0/24 | NextHop=A | ASPath=A B
 
-yaml
-Copy code
+
+
 
 ---
 
@@ -185,14 +186,14 @@ Copy code
   - LocalPref policies per neighbor
   - Route reflectors / iBGP / eBGP distinction
 - Export tables to JSON or CSV
-- GUI (WPF or WinForms)
-- Web API for real-time visualization
+- GUI (WPF or WinForms) - I will post this in a week or two
+- Web API for real-time visualization - I will also work on this in the coming weeks
 
 ---
 
 ## 👨‍💻 Author Notes
 
-This simulator is intentionally simplified to make BGP behaviors easy to visualize and teach.  
+This simulator is intentionally simplified to make BGP behaviors easy to visualize and learn.  
 It is **not** intended for production routing or full RFC compliance.
 
 ---
@@ -206,13 +207,3 @@ GraphViz download:
 https://graphviz.org/download/
 
 ---
-
-## 📬 Support
-
-If you need:
-- a GUI version  
-- more protocols (OSPF, IS-IS)  
-- advanced BGP attributes  
-- multi-threaded event timers  
-
-Just ask — happy to help 🔨🤖🔧
